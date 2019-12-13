@@ -22,6 +22,10 @@
 
     git diff 查看哪个文件修改
 
+    git log 提交记录
+    commit之前
+        git checkout index.html 撤销index.html提交
+        git checkout . 撤销所有提交
 2.调试工具
 3.抓包
 4.webpack babel
