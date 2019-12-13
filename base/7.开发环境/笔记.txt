@@ -17,8 +17,10 @@
          查看公钥：cat id_rsa.pub 或者 vim id_rsa.pub
 
     git clone xxx
-
+    添加.gitignore .idea  node_modules
     git status
+
+    git diff 查看哪个文件修改
 
 2.调试工具
 3.抓包
