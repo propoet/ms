@@ -27,12 +27,31 @@
         git checkout index.html 撤销index.html提交
         git checkout . 撤销所有提交
 
-    git fetch 拉取所有分支
+    合并之前 :git fetch 拉取所有分支  先git pull所有分支内容  git merge
     多人开发
         git checkout -b test-branch
         模拟分支
     测试test-branch2
+
+
+    在不正确的分支上修改
+        git stash
+        然后切换分支  git stash pop 释放
+
+
 2.调试工具
+    chrome 调试工具:
+
+
 3.抓包
+    fiddler
+    charles
+        手机和电脑连到统一个局域网
+        将手机代理到电脑上
+        手机浏览到网页 就可以抓包
+
+
+
+
 4.webpack babel
 5.linux常用命令
