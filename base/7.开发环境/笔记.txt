@@ -26,6 +26,11 @@
     commit之前
         git checkout index.html 撤销index.html提交
         git checkout . 撤销所有提交
+
+
+    多人开发
+        git checkout -b test-branch
+        模拟分支
 2.调试工具
 3.抓包
 4.webpack babel
