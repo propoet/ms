@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .area{
+        width: 200px;
+        height: 200px;
+        border: 1px solid red;
+    }
+</style>
+<!--拖拽一个元素时,要随时拿到该元素被拖拽的位置-->
+<!--如果直接用drag事件,会频繁触发,很容易导致卡顿-->
+<!--节流:无论拖拽速度多快,每隔100毫秒触发一次-->
+<div class="area">可拖拽</div>
+<script>
+
+    const el = document.querySelector('.area')
+   /* let timer = null
+    el.addEventListener('drag',function (e) {
+        if(timer){
+            return
+        }
+        timer= setTimeout(()=>{
+            console.log(e.offsetX,e.offsetY)
+            timer=null
+        },100)
+
+    })*/
+
+    function throttle(fn,delay=100) {
+        let timer = null
+        return function () {
+            if(timer){
+                return
+            }
+            timer = setTimeout(()=>{
+                fn.apply(this,arguments)
+                timer=null
+            },delay)
+        }
+    }
+
+    el.addEventListener('drag',throttle(function (e) {
+        console.log(e.offsetX,e.offsetY)
+    }))
+
+</script>
+
+</body>
+</html>

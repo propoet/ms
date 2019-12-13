@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input id="input" type="text">
+<script>
+    /*防抖*/
+    const el1 = document.querySelector('#input')
+    let timer
+  /*  el1.addEventListener('keyup', function (e) {
+        if (timer) {
+            clearTimeout(timer)
+        }
+        timer = setTimeout(() => {
+            console.log(e.target.value)
+            timer = null
+        }, 300)
+    })*/
+
+    function debounce(fn,delay=500) {
+        //timer 是在闭包中
+        let timer = null
+
+        return function () {
+            if(timer){
+                clearTimeout(timer)
+            }
+            setTimeout(()=>{
+                fn.apply(this,arguments)
+                timer = null
+            },delay)
+      }
+    }
+    el1.addEventListener('keyup', debounce(function(e){
+        console.log(e.target.value)
+    }))
+</script>
+
+</body>
+</html>
