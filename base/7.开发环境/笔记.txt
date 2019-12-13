@@ -31,6 +31,7 @@
     多人开发
         git checkout -b test-branch
         模拟分支
+    测试test-branch2
 2.调试工具
 3.抓包
 4.webpack babel
