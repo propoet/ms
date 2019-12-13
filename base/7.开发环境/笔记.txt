@@ -28,6 +28,9 @@
         git checkout . 撤销所有提交
 
     git fetch 拉取所有分支
+    多人开发
+        git checkout -b test-branch
+        模拟分支
 2.调试工具
 3.抓包
 4.webpack babel
