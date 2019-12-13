@@ -54,4 +54,39 @@
 
 
 4.webpack babel
+    es6模块化,浏览器暂不支持
+    es6语法,浏览器并不完全支持
+    压缩代码,整合代码,让网页加载更快
+
+    webpack:
+        npm init
+        npm i webpack webpack-cli -D
+
+        npm install html-webpack-plugin -D  口解析html的插件
+        npm install webpack-dev-server -D
+
+        npm i @babel/core @babel/preset-env babel-loader -D
+
 5.linux常用命令
+    登录
+        ssh work@1923....
+    ls 查看文件夹
+    ls -a
+    ll 看列表
+    clear
+    mkdir abc
+    rm -rf abc 删除
+    cd
+    mv index.html index1.html  重命名
+    mv bundle.js  ../bundle.js   移动到上级目录
+    cp index.html index1.html 拷贝
+    touch a.js 新建
+    vi a.js  新建并编辑
+        i 输入
+        esc :wq
+        :q! 强制退出
+    cat package.json  查看文件
+    head ..  打印前几行
+    tail .. 打印末尾几行
+    grep babel package.json 文件中查找关键字
+    vimtutor 帮助文档
