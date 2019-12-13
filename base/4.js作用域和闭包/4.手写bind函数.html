@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    Function.prototype.bind1=function () {
+        //参数拆解为数组
+        const args = Array.prototype.slice.call(arguments)
+        // 获取this(数组中第一项)
+        const t = args.shift()//数组删除第一项,并返回第一项,
+        //fn1.bind() 中的fn1
+        const self=this
+        return function () {
+            return self.apply(t,args)
+        }
+    }
+    function fn1(a,b){
+        console.log(this)
+        console.log(a,b)
+        return 'this is ret'
+    }
+    let fn2 = fn1.bind1({x:100},1,2)
+    let res= fn2()
+    console.log(res)
+</script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+1.git
+    常用git命令
+        git add.
+        git checkout xxx
+        git commit -m 'xxx'
+        git push origin master
+        git pull origin master
+        git branch
+        git checkout -b xxx/ git checkout xxx
+        git merge xxx
+
+    创建仓库,ssh配置ssh公钥
+    生成公钥
+        ssh-keygen -t rsa -C "propoet@163.com"
+         进入 .ssh 目录：cd ~/.ssh
+        找到 id_rsa.pub 文件：ls
+         查看公钥：cat id_rsa.pub 或者 vim id_rsa.pub
+
+    git clone xxx
+
+    git status
+
+2.调试工具
+3.抓包
+4.webpack babel
+5.linux常用命令

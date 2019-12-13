@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+
+    typeof 能识别所有的值类型
+    能识别function类型
+    不能识别 数组和对象
+
+
+</p>
+
+<script>
+    console.log(typeof  null)// object
+    function deepClone(obj) {
+        // object 是null 或者不是对象,直接返回
+        if (typeof obj !== 'object' || obj==null) {
+            return obj
+        }
+        let result
+        if(obj instanceof Array){
+            result=[]
+        }else{
+            result={}
+        }
+        for(let key in obj){
+            //对象本身有 属性,保证不是原型的属性
+            if(obj.hasOwnProperty(key)){
+                // 递归
+                result[key]=deepClone(obj[key])
+            }
+        }
+        return  result
+    }
+
+
+</script>
+
+
+</body>
+</html>

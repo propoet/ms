@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    //闭包隐藏应用,只提供api
+    function createCache() {
+        //闭包中的数据,别隐藏,不被外界访问
+        const data ={}
+        return {
+            set:function (key,value) {
+                data[key] = value
+            },
+            get(key){
+                return data[key]
+            }
+        }
+    }
+
+
+
+</script>
+</body>
+</html>
