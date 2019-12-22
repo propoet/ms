@@ -78,3 +78,76 @@ function updateChildren(vnode,newVnode){
         }
     })
 }
+
+
+/*var obj = {
+    name:'zhangsan'
+    ,age:25
+}
+console.log(obj.name)//
+obj.age=26*/
+var obj = {}
+var name = 'zhangsan'
+Object.defineProperty(obj,'name',{
+    get:function () {
+        console.log('get')
+        return name
+    },
+    set:function(newVal){
+        console.log('set')
+        name = newVal
+    }
+})
+console.log(obj.name) //可以监听到
+obj.name= 'lisi' // 可以监听到
+
+var vm = {}
+var data = {
+    price:100,
+    name:'zhangsan'
+}
+var key,value
+for(key in data){
+    //命中闭包，新建一个函数，保证key的独立的作用域
+    (function(key){
+        Object.defineProperty(vm,key,{
+            get:function(){
+                console.log('get')
+                return data[key]
+            },
+            set:function(newValue){
+                console.log('set')
+                data[key]=newValue
+            }
+        })
+    })(key)
+}
+
+
+//with用法
+var obj = {
+    name:'zhangsan',
+    age:20,
+    getAddress:function(){
+        alert('bj')
+    }
+}
+function fn(){
+    with(obj){
+        alert(name)
+        alert(age)
+        getAddress()
+    }
+}
+fn()
+
+
+with(this){
+    return _c(
+        'div',
+        {
+            attrs:{"id":"app"}
+        },
+        [_c('p',[_v(_s(price))])]
+    )
+}
