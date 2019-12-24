@@ -2,6 +2,7 @@
   "name": "lesson",
   "version": "1.0.0",
   "description": "",
+  "sideEffects":false,
   "scripts": {
     "bundle": "webpack ",
     "watch": "webpack --watch",

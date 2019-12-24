@@ -3,8 +3,8 @@ const htmlWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const webpack = require('webpack')
 module.exports = {
-  mode: 'development',
-  devtool: 'cheap-module-eval-source-map',
+  mode: 'production',
+  devtool: 'cheap-module-source-map',
   entry: {
     main: './src/index.js'
   },
@@ -25,9 +25,6 @@ module.exports = {
         loader:'babel-loader',
         options:{
           presets:[["@babel/preset-env",{
-            target:{
-              chrome:'>67'
-            },
             useBuiltIns:'usage' //当做babel-polyfill填充的时候，根据业务代码用到的 加
           }]]
         }
@@ -78,5 +75,8 @@ module.exports = {
       template: 'src/index.html'
     }), new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin()
-  ]
+  ],
+  optimization:{
+    usedExports:true// 开发环境 只打包使用到的js
+  }
 }
