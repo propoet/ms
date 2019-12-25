@@ -17,7 +17,15 @@ module.exports = {
   devServer: {
     contentBase: './dist',
     hot:true,
-    hotOnly:true
+    hotOnly:true,
+    proxy:{
+      '/react/api':{
+        target:"http://xxx",
+        pathRewrite:{
+          'header.json':'demo.json'
+        }
+      }
+    }
   },
   module: {
     rules: [
