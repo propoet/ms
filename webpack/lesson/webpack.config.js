@@ -2,6 +2,7 @@ const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const webpack = require('webpack')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   mode: 'production',
   devtool: 'cheap-module-source-map',
@@ -9,7 +10,8 @@ module.exports = {
     main: './src/index.js'
   },
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name].[contenthash].js',
+    chunkFilename:'[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist')
   },
   devServer: {
@@ -54,7 +56,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader',
+        use: [MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader']
       },
@@ -74,9 +76,18 @@ module.exports = {
     new htmlWebpackPlugin({
       template: 'src/index.html'
     }), new CleanWebpackPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new MiniCssExtractPlugin()
   ],
   optimization:{
-    usedExports:true// 开发环境 只打包使用到的js
+    // usedExports:true,// 开发环境 只打包使用到的js
+    splitChunks:{
+      chunks:'all',
+      cacheGroups: {
+        vendors:false,
+        default: false
+      }
+    }
+
   }
 }
