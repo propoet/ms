@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<script>
+
+    const p  = new Promise((resolve,reject)=>{
+      setTimeout(()=>{
+        let time = new Date();
+
+        if(time%2==0){
+          resolve("成功的数据"+time)
+        }else{
+          reject("失败的数据"+time)
+        }
+      },1000)
+    })
+
+    p.then(
+      value => {
+        console.log('成功的回调, value:',value)
+      },
+      reason => {
+        console.log('失败的回调, reason:', reason)
+      }
+    )
+
+
+</script>
+</body>
+</html>
