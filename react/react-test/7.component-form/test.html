@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="test"></div>
+
+<script src="../js/react.development.js"></script>
+<script src="../js/react-dom.development.js"></script>
+<script src="../js/prop-types.js"></script>
+<script src="../js/babel.min.js"></script>
+
+<script type="text/babel"> //jsx
+    class LoginForm extends React.Component{
+
+      constructor (props) {
+        super(props);
+        this.state={
+          pwd:'sss'
+        }
+        this.handleSubmit=this.handleSubmit.bind(this)
+        this.handleOnChange = this.handleOnChange.bind(this)
+      }
+
+      handleSubmit(event){
+        console.log("用户名：",this.usernameInput.value)
+        console.log("密码：",this.state.pwd)
+        event.preventDefault()
+      }
+      handleOnChange(event){
+        const pwd = event.target.value
+        this.setState({pwd})
+      }
+      render () {
+        return (
+          <div>
+              <form onSubmit={this.handleSubmit}>
+                <input placeholder="用户名" ref={input=>this.usernameInput= input}/>
+                <input type="password" placeholder="密码" value={this.state.pwd} onChange={this.handleOnChange}/>
+                <input type="submit" value="提交"/>
+              </form>
+          </div>
+        );
+      }
+    }
+
+    ReactDOM.render(<LoginForm/>,document.getElementById('test'))
+</script>
+
+</body>
+</html>

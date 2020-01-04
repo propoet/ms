@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="test1"></div>
+<div id="test2"></div>
+
+<script src="../js/react.development.js"></script>
+<script src="../js/react-dom.development.js"></script>
+<script src="../js/babel.min.js"></script>
+
+
+<script>
+    const msg ="I LOVE YOU"
+    const myId = "AT"
+    var vdom1 = React.createElement("h1",{id:myId.toLowerCase()},msg.toLowerCase())
+
+    ReactDOM.render(vdom1,document.getElementById('test1'))
+
+</script>
+
+<script type="text/babel">
+    var vdom2 = <h3 id={myId.toUpperCase()}>{msg.toUpperCase()}</h3>
+    ReactDOM.render(vdom2,document.getElementById('test2'))
+</script>
+
+
+</body>
+</html>

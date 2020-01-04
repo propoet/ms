@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="test">
+
+</div>
+
+<script src="../js/react.development.js"></script>
+<script src="../js/react-dom.development.js"></script>
+<script src="../js/babel.min.js"></script>
+
+<script type="text/babel"> //jsx
+    const arr = ['jq','html','css']
+    // 1.创建虚拟DOM元素对象
+    var vdom = (<ul>
+      {
+        arr.map((item,index)=>{
+          return <li key={index}>{item}</li>
+        })
+      }
+    </ul>)
+    //2.将虚拟DOM插入test
+    ReactDOM.render(vdom,document.getElementById('test'))
+
+</script>
+
+</body>
+</html>

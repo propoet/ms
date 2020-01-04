@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="test"></div>
+
+<script src="../js/react.development.js"></script>
+<script src="../js/react-dom.development.js"></script>
+<script src="../js/prop-types.js"></script>
+<script src="../js/babel.min.js"></script>
+
+<script type="text/babel"> //jsx
+class Life extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      opacity: 1
+    }
+    this.handleClick= this.handleClick.bind(this)
+  }
+  handleClick(){
+    ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+  }
+  //死亡
+  componentWillUnmount(){
+    clearInterval(this.intervalId)
+  }
+  //初始化
+  componentDidMount () {
+
+    this.intervalId=setInterval(() => {
+      console.log("定时器执行")
+      let {opacity} = this.state
+      opacity -= 0.1
+      if (opacity <= 0) {
+        opacity = 1
+      }
+      this.setState({opacity})
+    }, 200)
+  }
+
+
+  render () {
+    const {opacity} = this.state
+    return (
+      <div>
+        <h1 style={{opacity: opacity}}>{this.props.msg}</h1>
+        <button onClick={this.handleClick}>kill</button>
+      </div>
+    );
+  }
+
+}
+
+ReactDOM.render(<Life msg="react"/>, document.getElementById('test'))
+</script>
+
+</body>
+</html>
