@@ -1,16 +1,25 @@
-import React, {Component} from 'react';
+import React from 'react'
+import Search from './search'
+import UserList from './user-list'
 
-import logo from '../logo.png'
-import '../index.css'
-class App extends Component {
-  render () {
-    return (
-      <div>
-        <img src={logo} className='logo' alt=""/>
-        <p className='title'>react app 组件</p>
-      </div>
-    );
+export default class App extends React.Component {
+
+  state = {
+    searchName: ''
   }
-}
 
-export default App;
+  refreshName = (searchName) => this.setState({searchName})
+
+  render() {
+    return (
+      <div className="container">
+        <section className="jumbotron">
+          <h3 className="jumbotron-heading">Search Github Users</h3>
+          <Search refreshName={this.refreshName}/>
+        </section>
+        <UserList searchName={this.state.searchName}/>
+      </div>
+    )
+  }
+
+}
