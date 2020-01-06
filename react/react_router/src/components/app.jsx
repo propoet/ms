@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {NavLink,Switch,Route,Redirect} from 'react-router-dom'
+import {Switch,Route,Redirect} from 'react-router-dom'
+import MyNavLink  from "./my-nav-link";
 import About from '../views/about'
 import Home from '../views/home'
 class App extends Component {
@@ -16,9 +17,8 @@ class App extends Component {
                 <div className="row">
                     <div className="col-xs-2 col-xs-offset-2">
                         <div className="list-group">
-                            <NavLink to="/about" className="  list-group-item">About</NavLink>
-                            <NavLink to="/home" className="  list-group-item">Home</NavLink>
-
+                            <MyNavLink to="/about" className="list-group-item" >About</MyNavLink>
+                            <MyNavLink to="/home" className="list-group-item" >Home</MyNavLink>
                         </div>
                     </div>
                     <div className="col-xs-6">
